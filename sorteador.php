@@ -99,11 +99,11 @@ function combinacao($n, $r) {
 /**
  * Calcula o preço da aposta da Mega-Sena
  */
-function calcular_preco($numeroDezenas, $preco_base, $numero_minimo, $numero_maximo, $dezenas_minimo) {
-    
-    if ($numeroDezenas < $numero_minimo || $numeroDezenas > $numero_maximo) {
-        return [
-            'erro' => true,
+function calcular_preco($numeroDezenas, $preco_base, $numero_minimo, $numero_maximo, $dezenas_minimo) {        //numeroDezenas = quantidade de apostas do usuário
+                                                                                                               //preco_base = valor mínimo da aposta
+    if ($numeroDezenas < $numero_minimo || $numeroDezenas > $numero_maximo) {                                  //numero_minimo = numero minimo que pode ser sorteado
+        return [                                                                                               //numero_maximo = numero maximo que pode ser sorteado
+            'erro' => true,                                                                                    //dezenas_minimo = minimo de apostas que o usuário pode realizar
             'mensagem' => "Número de dezenas deve ser entre {$numero_minimo} e {$numero_maximo}",
             'preco' => 0,
             'combinacoes' => 0
