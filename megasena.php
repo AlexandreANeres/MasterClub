@@ -12,16 +12,16 @@
         <h1>Mega-Sena</h1>
         <form method="POST">
             <label for="numeroDezenas">Número de Dezenas:</label>
-            <input type="number" id="numeroDezenas" name="numeroDezenas" min="6" max="15" required>
+            <input type="number" id="numeroDezenas" name="numeroDezenas" min="6" max="20" required>
             <button type="submit">Sortear</button>
         </form>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $dezenas_minimo = 6;
-            $dezenas_maximo = 15;
+            $dezenas_maximo = 20;
             $numero_minimo = 1;
             $numero_maximo = 60;
-            $preco_base = 4.5;
+            $preco_base = 5;
 
             $numeroDezenas = intval($_POST['numeroDezenas']);
 
