@@ -20,7 +20,7 @@
             $dezenas_maximo = 15;
             $numero_minimo = 1;
             $numero_maximo = 80;
-            $preco_base = 2.5;
+            $preco_base = 3;
 
             $numeroDezenas = intval($_POST['numeroDezenas']);
 
