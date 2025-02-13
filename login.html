@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            background-image: url('./fundo_vermelho_cadastro_login.png');
+            color: rgba(248, 248, 248, 0.966);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: white;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Login</h1>
+    <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginSenha" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+    </form>
+
+    <script>
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('loginEmail').value;
+            const senha = document.getElementById('loginSenha').value;
+
+            const user = users.find(user => user.email === email && user.senha === senha);
+
+            if (user) {
+                alert('Login bem-sucedido!');
+                localStorage.setItem('isLoggedIn', true);
+                // Redirecionar para a página principal ou outra página
+                window.location.href = 'loteriahome.html';
+            } else {
+                alert('Usuário ou senha inválidos. Por favor, tente novamente.');
+            }
+
+            // Limpar o formulário
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>

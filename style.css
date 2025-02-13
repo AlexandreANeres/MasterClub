@@ -1,0 +1,36 @@
+
+        body {
+            background-image: url('./fundo_vermelho_cadastro_login.png');
+            color: rgba(248, 248, 248, 0.966);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: white;
+            color: red;
+            cursor: pointer;
+        }
+

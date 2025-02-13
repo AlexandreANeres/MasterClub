@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Master Club</title>
+   
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const loader = document.getElementById('loader');
+            const content = document.querySelectorAll('h1, top-bar, p, #imagens, #botões');
+            
+            content.forEach(element => {
+                element.style.display = 'none';
+            });
+
+            setTimeout(function() {
+                content.forEach(element => {
+                    element.style.display = 'block';
+                });
+            }, 10000);
+        });
+    </script>
+
+<style>
+    
+    @keyframes fadeIn { /* Itens aparecem com uma animação de fantasma */
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    h1, top-bar, p, #botões { /* Aplica o: Itens aparecem com uma animação de fantasma */
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    @layer base { /* Vídeo de fundo da página */
+        body {
+            background-image: url('https://i.pinimg.com/originals/38/38/e8/3838e849e4f7e2e358c3b7a353659955.gif');
+            background-size: cover;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    
+    @layer loader { /* Vídeo da ampulheta para Loading da página */
+        #loader {
+            position: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    }
+
+    @layer layout { /* Layout da página = oculto por vídeo rodando encima do Layout */
+        body {
+            background-color: #800020;
+            color: #e9dd9b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 { /* Título da página = Loteria */
+            margin-bottom: 20px;
+        }
+
+        ul { /* Lista de botões */
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li { /* Espaçamento entre botões */
+            margin: 25px 0;
+        }
+
+        a { /* Botões */
+            text-decoration: none;
+            color: #f0e399;
+            background-color: #551010;
+            padding: 7px 30px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover { /* Efeito de hover nos botões */
+            background-color: #c0dd70;
+        }
+
+        #up-left { /* Imagem de moedas = 01 */
+            position: absolute;
+            top: -200px;
+            left: -100px;
+            transform: rotate(135deg);
+            z-index: 2;
+        }
+
+        #down-left { /* Imagem de moedas = 02 */
+            position: absolute;
+            top: 700px;
+            left: -100px;
+            transform: rotate(65deg);
+            z-index: 2;
+        }
+
+        #up-right { /* Imagem de moedas = 03 */
+            position: absolute;
+            top: -200px;
+            left: 1500px;
+            transform: rotate(240deg);
+            z-index: 2;
+        }
+
+        #down-right { /* Imagem de moedas = 04 */
+            position: absolute;
+            top: 700px;
+            left: 1500px;
+            transform: rotate(300deg);
+            z-index: 2;
+        }
+    }
+
+        #top-bar {
+            background-color: rgba(110, 4, 4, 0.993);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            z-index: 3;
+        }
+
+        #top-bar div {
+            margin: 0 20px;
+        }
+
+        #top-bar h1 { /* Master Club Title */
+            display: inline;
+            margin-right: 0px;
+        }
+
+        #info-button { /* Informações = clicável */
+            cursor: pointer;
+        }
+
+        #login-button { /* Entrar = clicável */
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        #dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgb(212, 212, 158);
+            color: black;
+            padding: 10px;
+            border: 1px solid #df1515;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        #top-bar {
+            justify-content: space-between;
+            padding: 10px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+
+        #login-button { /* Entrar */
+            margin-left: 100px;
+            margin-bottom: 40px;
+            font-size: 24px;
+        }
+
+</style>
+
+</head>
+<body>
+    
+    <h1>Loteria</h1>
+    <p>Escolha a loteria que deseja jogar:</p>
+       
+    <header id="imagens">
+
+    <img src="imagens/imagem_moedas_dok.png" id='up-left'/>
+    <img src="imagens/imagem_moedas_dok.png" id='down-left'/>
+    <img src="imagens/imagem_moedas_dok.png" id='up-right'/>
+    <img src="imagens/imagem_moedas_dok.png" id='down-right'/>
+
+    </header>
+
+    <header id="musicas">
+        <audio id="player_audio" loop="loop">
+            <source src="kiko_loureiro.mp3" type="audio/mp3" />
+            seu navegador não suporta HTML5
+        </audio>
+    </header>
+
+        <script>
+            document.addEventListener("mousemove", function() {
+                const audio = document.getElementById('player_audio');
+                audio.play();
+            });
+        </script>
+
+    <header id="videos">
+
+        <video autoplay muted loop id="loader">
+            <source src="Loading Screen.mp4" type="video/mp4">
+        </video></video>
+        <script>setTimeout(function(){ loader.style.display='none'; },10000);</script>
+
+    </header>
+    
+    <header id="botões">
+
+        <h1>Loteria</h1>
+        <ul>
+            <li><a href="#" onclick="checkLogin('megasena.php')">Mega-Sena</a></li>
+            <li><a href="#" onclick="checkLogin('lotomania.php')">Lotomania</a></li>
+            <li><a href="#" onclick="checkLogin('lotofacil.php')">Lotofácil</a></li>
+            <li><a href="#" onclick="checkLogin('quina.php')">Quina</a></li>
+        </ul>
+    
+        <script>
+            function checkLogin(page) {
+                const isLoggedIn = localStorage.getItem('isLoggedIn');
+                if (isLoggedIn) {
+                    window.location.href = page;
+                } else {
+                    alert('Por favor, faça login para acessar esta página.');
+                    window.location.href = 'login.html';
+                }
+            }
+        </script>
+
+    </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const loginButton = document.getElementById('login-button');
+            const dropdown = document.getElementById('dropdown');
+
+            loginButton.addEventListener('click', function() {
+                dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!loginButton.contains(event.target) && !dropdown.contains(event.target)) {
+                    dropdown.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <header id="top-bar" style="position: absolute; top: 0; width: 100%; display: flex; justify-content: space-between; padding: 5x; background-color: rgb(53, 15, 15); color: white;">
+        <div>
+            <h1 style="display: inline; margin-right: 20px;">Master Club</h1>
+        </div>
+        <div style="position: relative;">
+            <span id="login-button" style="cursor: pointer;">Entrar</span>
+            <div id="dropdown" style="display: none; position: absolute; top: 100%; left: 0; background-color: rgb(214, 216, 184); color: rgb(255, 255, 255); padding: 10px; border: 1px solid #ccc;">
+                <div style="cursor: pointer;" onclick="window.location.href='cadastro.html'">Cadastrar</div>
+                <div style="cursor: pointer;" onclick="window.location.href='login.html'">Login</div>
+            </div>
+        </div>
+    </header>
+
+    </body>
+
+</html>
